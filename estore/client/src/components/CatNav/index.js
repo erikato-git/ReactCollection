@@ -24,7 +24,8 @@ function CatNav() {
                     {
                         categories.map((category)=>{
                             return(
-                                <li className='list-items'> <a href='#'> {category} </a> </li>
+                                // category is a pointer that point to a property 'category' in a json-object
+                                <li className='list-items'> <a href='#'> {category.category} </a> </li>
                             )
                         })
                     }
