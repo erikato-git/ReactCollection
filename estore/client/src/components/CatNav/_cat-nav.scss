@@ -1,0 +1,50 @@
+@import '../../style/sass/_variable.scss';
+@import '../../style/sass/_mixins.scss';
+// TODO: make global variables in sass work
+
+
+.cat-nav-container{
+    background-color: #1e1e1e;
+    max-width: 100%;
+    border-top: #444444 1px;
+
+    .list-items{
+        list-style-type: none;
+        display: inline-block;
+        margin: 0.2em 1em;
+
+
+        a{
+            text-decoration: none;
+            color: white;
+            height: 1.8em;
+            font-size: 0.9em;
+            font-weight: 700;
+
+            &::after{
+                content: '';
+                display: block;
+                bottom: 0;
+                left: 0;
+                height: 0.2em;
+                // background-color: accent-color;
+                background-color: red;
+                transform: scaleX(0);
+                transition-property: transform;
+                transition-duration: 0.2s;
+                // @include transition(transform, 0.2)
+            }
+
+            &:hover{
+                &::after{
+                    transform: scaleX(1.1);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+

@@ -1,0 +1,87 @@
+$icon-font: 1.3em;
+$element-height: 2.5em;
+
+
+.header{
+    max-width: 100%;
+    box-shadow: 5px 5px 20px grey;
+  }
+  
+  // Avoid using pre-defined CSS or bootstrap names only customized-names
+  // .row div{
+  //   display: inline-block;
+  // } 
+
+  .top-nav-row div{
+    display: inline-block;
+  } 
+  
+  .brand{
+    color: white;
+    margin-left: 2%;
+    padding: 0.8em;
+    width: 23%;
+  }
+  
+  .inp-container input{
+    display: inline-block;
+    width: 75%;
+    height: $element-height;
+  }
+  
+  .inp-container button{
+    width: 10%;
+    height: $element-height;
+    border: none;
+    background-color: #dadada;
+  } 
+  
+  .dropdown{
+    width: 15%;
+  }
+  
+  .select-btn{
+    height: 2.5em;
+    border: none;
+    background-color: #dadada;
+    font-weight: 500;
+  }
+  
+  .login-container{
+    width: 15%;
+    color: white;
+    text-align: right;
+    margin: 1em;
+  }
+  
+  .login-container i,h5{
+    display: inline-block;
+  }
+  
+  .login-container a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .user-icon {
+    margin-right: 0.4em;
+    padding: 0.2em;
+    font-size: $icon-font;
+  }
+  
+  .cart-wishlist .list-icon{
+    color: white;
+    font-size: $icon-font;
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 0.5em;
+  }
+  
+  .cart-wishlist{
+    width: 7%;
+    margin-top: 1.5em;
+    margin-left: 1em;
+  }
+  
+  
+  
