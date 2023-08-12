@@ -3,18 +3,25 @@ import './_products.scss';
 import productSlice from '../../Redux/Products/index';
 import { useEffect } from 'react';
 import { getProducts } from '../../Redux/Products/actions';
+import { addCartItem } from '../../Redux/Cart';
 
 const Products = ()=>{
 
     // const productData = useSelector(productSlice.getInitialState);
     const productData = useSelector(state => state.productReducer.products);
+    const cart = useSelector(state => state.cartReducer)
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getProducts())
     },[])
 
-
+    function addToCart(itemData){
+        dispatch(addCartItem(itemData))
+    }
+    
+    console.log(cart)
+ 
     return(
         <div className='products-container'>
             {
@@ -34,6 +41,16 @@ const Products = ()=>{
                                     <i className='fa fa-star'/>
                                     <i className='fa fa-star'/>
                                     <i className='fa fa-star'/>
+                                </div>
+                            </div>
+                            <div className='my-3' onClick={() => addToCart(product)}>
+                                <div className='cart-button'>
+                                    <div className='cart-icon-container'>
+                                        <i className='fa fa-shopping-cart mx-4'/>
+                                    </div>
+                                    <div className='cart-text-container mx-3'>
+                                        <p> Add to Cart </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

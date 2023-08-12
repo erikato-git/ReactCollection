@@ -1,20 +1,14 @@
 $icon-font: 1.3em;
 $element-height: 2.5em;
 
-
 .header{
     max-width: 100%;
-    box-shadow: 5px 5px 20px grey;
-  }
+    box-shadow: 5px 5px 20px gray;
+}
   
-  // Avoid using pre-defined CSS or bootstrap names only customized-names
-  // .row div{
-  //   display: inline-block;
-  // } 
-
   .top-nav-row div{
     display: inline-block;
-  } 
+  }
   
   .brand{
     color: white;
@@ -28,42 +22,38 @@ $element-height: 2.5em;
     width: 75%;
     height: $element-height;
   }
-  
   .inp-container button{
     width: 10%;
     height: $element-height;
     border: none;
     background-color: #dadada;
-  } 
+  }
   
   .dropdown{
     width: 15%;
   }
-  
   .select-btn{
-    height: 2.5em;
+    height: $element-height;
     border: none;
     background-color: #dadada;
-    font-weight: 500;
+    font-weight: 600;
   }
   
   .login-container{
     width: 15%;
     color: white;
     text-align: right;
-    margin: 1em;
+    margin: 1.7em 0.2em 0 0;
   }
-  
   .login-container i,h5{
     display: inline-block;
   }
-  
   .login-container a{
     text-decoration: none;
     color: white;
   }
   
-  .user-icon {
+  .user-icon{
     margin-right: 0.4em;
     padding: 0.2em;
     font-size: $icon-font;
@@ -79,9 +69,26 @@ $element-height: 2.5em;
   
   .cart-wishlist{
     width: 7%;
-    margin-top: 1.5em;
+    margin-top: 1.7em;
     margin-left: 1em;
   }
-  
-  
-  
+.list-icon{
+
+  #cart-item-count{
+    border-radius: 50%;
+    background-color: gold;
+    position: absolute;
+    height: 1em;
+    width: 1em;
+    // left: 0 em;
+    top: 1.8%;
+    text-align: center;
+    line-height: 90%;
+
+    p{
+      font-size: 0.8em;
+      font-weight: 600;
+      color: black;
+    }
+  }
+}
