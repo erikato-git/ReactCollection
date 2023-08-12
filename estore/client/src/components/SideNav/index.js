@@ -1,18 +1,44 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import accordionSlice from '../../Redux/Accordion/index';
-import './_side-nav.scss';
-import { useEffect } from 'react';
+import accordionSlice from '../../Redux/Accordion';
 import { getCategories } from '../../Redux/Category/actions';
+import { filterByPrice, filterProducts } from '../../Redux/Products';
+import './_side-nav.scss';
 
 const SideNav = ()=>{
-
-    // const accordionData = useSelector(accordionSlice.getInitialState);
-    const accordionData = useSelector(state => state.categoryReducer.categories);
+    const accordionData = useSelector(state=>state.categoryReducer.categories);
+    const fetchedProductData = useSelector(state=>state.productReducer);
+    const [products,setProducts] = useState();
+    const [minPriceLimit,setMinPriceLimit] = useState(10);
+    const [maxPriceLimit,setMaxPriceLimit] = useState(130);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getCategories())
-    },[])
+    useEffect(()=>{
+        dispatch(getCategories());
+    },[]);
+
+    useEffect(()=>{
+        setProducts(fetchedProductData.products);
+    },[fetchedProductData.status])
+
+    const filterData = (selectedCategory)=>{
+        const payload = {selectedCategory,products};
+        dispatch(filterProducts(payload));
+    }
+
+    const setPriceLimit = (e, stateFlag) => {
+        if(stateFlag === "max"){
+            setMaxPriceLimit(e.target.value)
+        }else if(stateFlag === "min"){
+            setMinPriceLimit(e.target.value)
+        }
+    }
+
+    const applyPriceFilter = () => {
+        const payload = {products,minPriceLimit,maxPriceLimit};
+        dispatch(filterByPrice(payload))
+    }
+
 
     return(
         <div className='side-nav'>
@@ -20,7 +46,7 @@ const SideNav = ()=>{
                 <h3>Category</h3>
             </div>
 
-            <div className='accordion'>
+            <div className='accordion my-3'>
                 {
                     accordionData.map((accordionCategory, key)=>{
                         if(accordionCategory.parent_category_id === null){
@@ -37,9 +63,13 @@ const SideNav = ()=>{
                                         <div className='accordion-body'>
                                             <ul>
                                                 {
-                                                    accordionData.map((subCategory) => {
+                                                    accordionData.map((subCategory)=>{
                                                         if(accordionCategory.id === subCategory.parent_category_id){
-                                                            return <li className='sub-items'> <a href='#'>{subCategory.category}</a> </li>
+                                                            return (
+                                                                <li className='sub-items'> 
+                                                                    <a href='#' onClick={()=>filterData(subCategory)}>{subCategory.category}</a> 
+                                                                </li>
+                                                            )
                                                         }
                                                     })
                                                 }
@@ -48,11 +78,45 @@ const SideNav = ()=>{
                                     </div>
                                 </div>
                             )
-                        }
 
+                        }
                     })
                 }
+
             </div>
+
+            <div className='price-filter-container'>
+                <div className='section-title'>
+                    <h3> Filter by price </h3>
+                </div>
+                <div>
+                    <label> Min: {minPriceLimit} </label>
+                    <input 
+                        className='form-range'
+                        type='range'
+                        min={10}
+                        max={130}
+                        step={10}
+                        onChange={(e) => setPriceLimit(e,"min")}
+                    />
+                </div>
+                <div>
+                    <label> Max: {maxPriceLimit} </label>
+                    <input 
+                        className='form-range'
+                        type='range'
+                        min={10}
+                        max={130}
+                        step={10}
+                        onChange={(e) => setPriceLimit(e,"max")}
+                    />
+                </div>
+                <button 
+                    className='btn btn-outline-dark my-3'
+                    onClick={applyPriceFilter}
+                > Apply Filter </button>
+            </div>
+
         </div>
     )
 }

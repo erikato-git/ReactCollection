@@ -3,7 +3,7 @@
     margin-top: 1em;
     padding: 0.6em;
     box-shadow: 1px 0px 14px 0px lightgrey;
-    height: 40em;
+    height: 60em;
     border-radius: 1em;
 
     .section-title{
@@ -51,6 +51,12 @@
 
         }
 
+    }
+
+    .price-filter-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
 
 }

@@ -5,8 +5,32 @@ parent_category_id INT, created_on timestamp default now(), primary key (id));
 
 insert into categories(category) value("Men");
 insert into categories(category, parent_category_id) values ("Jackets",1), ("Shirts",1);
+insert into categories(category) value("Women"), ("Kids");
 
+insert into categories(category,parent_category_id) values("Party Wear",4),("Foot Wear",4),
+("Accessories",4),("Accessories",5),("Jackets",5);
 
 select * from categories
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '^$3VnnMBdtP88Uvxp9cY';
+
+
+create table products(id int auto_increment, product_name varchar(50), category_id int, 
+product_img varchar(100), price float, created_on timestamp default now(), primary key(id));
+
+insert into products(product_name, category_id, product_img, price) values("Jackets", 1,
+"shop-1.jpg", 45);
+
+insert into products(product_name, category_id, product_img, price) 
+values("Purse", 2,"shop-2.jpg", 20), ("Dress", 4,"shop-3.jpg", 45),
+("Denim Jeans", 2,"shop-4.jpg", 50), ("Laced Boots", 5,"shop-5.jpg", 65),
+("Backpack", 3,"shop-6.jpg", 20), ("Earnings", 5,"shop-7.jpg", 12),
+("Scarf", 5,"shop-8.jpg", 15), ("Leather Boots", 4,"shop-9.jpg", 115);
+
+select * from products;
+
+
+
+
+
+
