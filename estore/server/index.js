@@ -1,27 +1,13 @@
-const express = require('express')
-const mysql = require('mysql')
-const productCategories = require('./routes/ProductCategories')
-const cors = require('cors')
+const express = require('express');
+const product = require('./routes/product');
+const app = express();
+const cors = require('cors');
 
+app.use(cors());
 
-const app = express()
+app.use("/",product);
 
-
-app.use(cors())
-
-app.use("/productCategories",productCategories)
-
-
-
-
-// app.get("/", (req,res) => {
-//     res.send("Test connection")
-// })
-
-const PORT = 5001
-
-const server = app.listen(PORT, () =>{
-    console.log(`Server is running on port ${PORT}`)
+const PORT = 5001;
+const server = app.listen(PORT , ()=>{
+    console.log("App is running on the port - 5001");
 })
-
-

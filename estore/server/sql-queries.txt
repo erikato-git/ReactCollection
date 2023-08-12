@@ -1,0 +1,12 @@
+use estore;
+
+create table categories(id int auto_increment, category varchar(50), 
+parent_category_id INT, created_on timestamp default now(), primary key (id));
+
+insert into categories(category) value("Men");
+insert into categories(category, parent_category_id) values ("Jackets",1), ("Shirts",1);
+
+
+select * from categories
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '^$3VnnMBdtP88Uvxp9cY';

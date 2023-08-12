@@ -23,10 +23,14 @@ function CatNav() {
                 <ul>
                     {
                         categories.map((category)=>{
-                            return(
-                                // category is a pointer that point to a property 'category' in a json-object
-                                <li className='list-items'> <a href='#'> {category.category} </a> </li>
-                            )
+                            // parent_category_id === null, means it's a head category "Men", "Women" etc. which means it isn't attach to a head-category
+                            if(category.parent_category_id === null){
+                                return(
+                                    // category is a pointer that point to a property 'category' in a json-object
+                                    <li className='list-items'> <a href='#'> {category.category} </a> </li>
+                                )
+                            }
+
                         })
                     }
                     
