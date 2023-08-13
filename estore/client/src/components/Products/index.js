@@ -4,6 +4,7 @@ import productSlice from '../../Redux/Products/index';
 import { useEffect } from 'react';
 import { getProducts } from '../../Redux/Products/actions';
 import { addCartItem } from '../../Redux/Cart';
+import { Link } from 'react-router-dom';
 
 const Products = ()=>{
 
@@ -30,10 +31,14 @@ const Products = ()=>{
                         // <div className='mx-5 p-3 col-lg-3 col-md-6 product-card'>
                         <div className='p-3 product-card'>
                             <div className='product-image-container'>
-                                <img src={require('../../assets/images/shop/'+product.product_img)}/>
+                                <Link to="/productDetails">
+                                    <img src={require('../../assets/images/shop/'+product.product_img)}/>
+                                </Link>
                             </div>
                             <div className='product-info'>
-                                <h5> <a href='#'>{product.product_name}</a> </h5>
+                                <h5>
+                                    <Link to="/productDetails">{product.product_name}</Link>
+                                </h5>
                                 <p className='product-price'> ${product.price} </p>
                                 <div className='product-rating'>
                                     <i className='fa fa-star'/>

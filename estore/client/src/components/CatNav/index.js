@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './_cat-nav.scss'
 import React, { useEffect } from 'react'
 import { getCategories } from '../../Redux/Category/actions';
+import { Link } from 'react-router-dom';
 
 function CatNav() {
 
@@ -21,6 +22,9 @@ function CatNav() {
         <>
             <div className='cat-nav-container container'>
                 <ul>
+                    <li className='list-items'>
+                        <Link to="/"> Home </Link>
+                    </li>
                     {
                         categories.map((category)=>{
                             // parent_category_id === null, means it's a head category "Men", "Women" etc. which means it isn't attach to a head-category
