@@ -1,8 +1,19 @@
+import GoogleLogin from 'react-google-login';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './_top-nav.scss';
+import { useState } from 'react';
+import { gapi } from 'gapi-script';
 
 const TopNav = ()=>{
     const cartItemCount = useSelector(state=>state.cartReducer.totalItems);
+    const [userDetails,setUserDetails] = useState()
+
+    {/* gapi makes login-details visible for the application */}
+    const succesHandler = (res) => {
+        console.log(res)
+        setUserDetails(res.profileObj)
+    }
 
     return(
         <div>
@@ -24,21 +35,36 @@ const TopNav = ()=>{
                 </div>
                 <div className='login-container p-0'>
                     <i className='fa fa-user-circle user-icon'/>
-                    <h5> <a href='#'> Login</a></h5> / <h5><a href='#'>Register</a></h5>
+                    {/* Only users enabled for test-users will work in test-mode */}
+                    <h5>
+                        {
+                            userDetails == null ?
+                                <GoogleLogin
+                                    clientId='301695556079-bvtmj90g78rhr3sgu0k7c3ls8a66adak.apps.googleusercontent.com'
+                                    buttonText='Login'
+                                    cookiePolicy='single_host_origin'
+                                    onSuccess={succesHandler}
+                                />
+                            :
+                                userDetails.name
+                        }
+                    </h5>
                 </div>
                 <div className='cart-wishlist'>
                     <ul className='p-0'>
-                    <li className='list-icon'> <i className='fa fa-heart'/></li>
-                    <li className='list-icon'>
-                        <i className='fa fa-shopping-cart'/>
-                        {
-                            cartItemCount!==0 ?
-                                <div id='cart-item-count'>
-                                    <p> {cartItemCount} </p>
-                                </div>
-                            : <></>
-                        }
-                    </li>
+                        <li className='list-icon'> <i className='fa fa-heart'/></li>
+                        <Link to="/cart">
+                            <li className='list-icon'>
+                                <i className='fa fa-shopping-cart'/>
+                                {
+                                    cartItemCount!==0 ?
+                                        <div id='cart-item-count'>
+                                            <p> {cartItemCount} </p>
+                                        </div>
+                                    : <></>
+                                }
+                            </li>
+                        </Link>
                     </ul>
                 </div>
                 </div>

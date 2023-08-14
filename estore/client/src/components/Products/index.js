@@ -18,7 +18,8 @@ const Products = ()=>{
     },[])
 
     function addToCart(itemData){
-        dispatch(addCartItem(itemData))
+        const payload = {...itemData,quantity:1}
+        dispatch(addCartItem(payload))
     }
     
     console.log(cart)
@@ -31,13 +32,21 @@ const Products = ()=>{
                         // <div className='mx-5 p-3 col-lg-3 col-md-6 product-card'>
                         <div className='p-3 product-card'>
                             <div className='product-image-container'>
-                                <Link to="/productDetails">
+                                <Link 
+                                    to="/productDetails"
+                                    state={product}
+                                    >
                                     <img src={require('../../assets/images/shop/'+product.product_img)}/>
                                 </Link>
                             </div>
                             <div className='product-info'>
                                 <h5>
-                                    <Link to="/productDetails">{product.product_name}</Link>
+                                    <Link 
+                                        to="/productDetails"
+                                        state={product}
+                                        >
+                                        {product.product_name}
+                                    </Link>
                                 </h5>
                                 <p className='product-price'> ${product.price} </p>
                                 <div className='product-rating'>
