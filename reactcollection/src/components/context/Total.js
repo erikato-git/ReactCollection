@@ -3,6 +3,7 @@
 import React, { useContext } from 'react'
 import TotalContext from './store/total-context'
 
+
 function Total() {
     
     const total = useContext(TotalContext)      // useContext will re-render the component everytime there is a change in TotalContext

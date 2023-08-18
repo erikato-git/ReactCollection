@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+// index.js (top-level)
+
 import reportWebVitals from './reportWebVitals';
 // import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';

@@ -9,8 +9,6 @@ import TotalContext from './store/total-context';
 // 2. Provider
 // 3. Consumer
 
-
-
 function ShoppingCart() {
     const products=[
       {pName:'Apple',price:20},
@@ -53,10 +51,10 @@ function ShoppingCart() {
         </select>
         </div>
             <Cart cart={cart} />
-            <TotalContext.Provider value={total}>
-              {/* <Total total={total}/> */}
-              <Total />
-            </TotalContext.Provider>
+            {/* <TotalContext.Provider value={total}> */}
+              <Total total={total}/>
+              {/* <Total /> */}
+            {/* </TotalContext.Provider> */}
       </div>
     );
   }

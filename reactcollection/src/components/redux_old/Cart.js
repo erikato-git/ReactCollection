@@ -6,13 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 function Cart(){
   const cart = useSelector(state => state.cart)
   const loginDetail = useSelector(state => state.loginDetail)
-
   
   const dispatch = useDispatch();
+
   function deleteHandler(index,price){
     dispatch({type:'DELETE',data:{index,price}})
   }
-
 
   return (
     <div className="customDiv">

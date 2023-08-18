@@ -1,4 +1,4 @@
-
+// Memo2.js
 
 import React, { useCallback, useState } from 'react'
 import { MemoizedHeader, MemoizedDisplayCounter, MemoizedDisplayFlag, MemoizedCaption, MemoizedFooter } from './Memo2_components'
@@ -47,39 +47,39 @@ function Memo2() {
 }
 
 
-function Header(){
-    console.log("Header")
-    return (
-        <div>Header</div>
-    )
-}
+// function Header(){
+//     console.log("Header")
+//     return (
+//         <div>Header</div>
+//     )
+// }
 
-function DisplayCounter(props){
-    console.log("DisplayCounter")
-    return (
-        <div>DisplayCounter {props.counter}</div>
-    )
-}
+// function DisplayCounter(props){
+//     console.log("DisplayCounter")
+//     return (
+//         <div>DisplayCounter {props.counter}</div>
+//     )
+// }
 
-function DisplayFlag(props){
-    console.log("DisplayFlag")
-    return (
-        <div>DisplayFlag {props.flag.toString()}</div>
-    )
-}
+// function DisplayFlag(props){
+//     console.log("DisplayFlag")
+//     return (
+//         <div>DisplayFlag {props.flag.toString()}</div>
+//     )
+// }
 
-function Caption(props){
-    console.log("Caption")
-    return(
-        <button onClick={props.click}>{props.title}</button>
-    )
-}
+// function Caption(props){
+//     console.log("Caption")
+//     return(
+//         <button onClick={props.click}>{props.title}</button>
+//     )
+// }
 
-function Footer(){
-    console.log("Footer")
-    return (
-        <div>Footer</div>
-    )
-}
+// function Footer(){
+//     console.log("Footer")
+//     return (
+//         <div>Footer</div>
+//     )
+// }
 
 export default Memo2

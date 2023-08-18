@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import A_ShowData from './ShowData';
+import ShowData from './ShowData';
 
 // [Old] class-components relate to functional components
 // useEffect() can be compared to componentDidMount(), componentDidUpdate(), componentWillUnMound() combined
@@ -19,7 +19,7 @@ function DigitalClock() {
     return (
         <div>
             <h1>{cTime}</h1>
-            {showData ? <A_ShowData /> : <p> No data! </p>}            {/* Conditional rendering */}
+            {showData ? <ShowData /> : <p> No data! </p>}            {/* Conditional rendering */}
             <button onClick={() => setShowData(!showData)}>Toggle</button>
         </div>
     )

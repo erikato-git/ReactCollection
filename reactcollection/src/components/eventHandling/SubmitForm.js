@@ -14,6 +14,7 @@ function SubmitForm() {
     const [personInfo,setPersonInfo] = useState({
         firstName: '',
         lastName: '',
+        remeberMe: false,
         mobile: '',
     })
 
@@ -74,7 +75,7 @@ function SubmitForm() {
                     type='text'
                     name='lastName'
                     placeholder='last name'
-                    // onChange={firstNameChangeHandler}   // 1.-2. Approach
+                    // onChange={lastNameChangeHandler}   // 1.-2. Approach
                     onChange={inputChangeHandler}    // 3. Approach
                 />
                 <br/>

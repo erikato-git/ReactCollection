@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Redux is most proper to use in large size application
 
-// useStore vs useSelectore: useStore is the store-object passed in the Provider, useSelector only selects the specific data in the particular store-object
+// useStore vs useSelector: useStore is the store-object passed in the Provider, useSelector only selects the specific data in the particular store-object
 
 // useSelector when I want to access data, useDispatch when I want to update the global state
 

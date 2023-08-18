@@ -22,7 +22,7 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <DigitalClock /> */}
-    {/* <RefFocus /> */}
+    <RefFocus />
     {/* <Memo /> */}
     {/* <Memo2 /> */}
     {/* <RenderingList /> */}
@@ -34,7 +34,7 @@ root.render(
     {/* <ShoppingCart /> */}
     {/* <ReduxOld /> */}
     {/* <Counter /> */}
-    <Users />
+    {/* <Users /> */}
   </React.StrictMode>
 );
 

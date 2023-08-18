@@ -14,16 +14,15 @@ const pool = mysql.createPool({
 product.get("/productCategories",(req,res)=>{
     let categorydata;
 
-            pool.query("Select * from categories",(error,categories)=>{
-                if(error){
-                    categorydata = error;
-                    res.status(500).send(categorydata);
-                }else{
-                    categorydata = categories;
-                    res.status(200).send(categorydata);
-                }
-            })
-
+    pool.query("Select * from categories",(error,categories)=>{
+        if(error){
+            categorydata = error;
+            res.status(500).send(categorydata);
+        }else{
+            categorydata = categories;
+            res.status(200).send(categorydata);
+        }
+    })
 })
 
 product.get("/getProducts",(req,res)=>{

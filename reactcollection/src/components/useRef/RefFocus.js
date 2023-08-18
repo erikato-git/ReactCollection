@@ -13,7 +13,9 @@ function RefFocus() {
             <br/>
             <input type='text' ref={iElement}></input>                  {/* Here the useRef element gets the DOM */}
             <br/>
-            <button onClick={() => iElement.current.focus()}>Set focus</button>
+            {/* <button onClick={() => iElement.current.focus()}>Set focus</button> */}
+            {/* <input type="text"></input> */}
+            <button onClick={() => console.log(iElement.current)}>Get DOM</button> 
         </div>
     )
 }

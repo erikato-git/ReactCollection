@@ -22,6 +22,7 @@ import Login from './Login'
 import { combineReducers, legacy_createStore } from 'redux'
 import productReducer from './store/separate_reducers/productsReducer'
 import loginReducer from './store/separate_reducers/loginReducer'
+import './ReduxOld.css'
 
 // generally 'Provider' is put in the highest level of components in index.js
 
@@ -39,11 +40,11 @@ import loginReducer from './store/separate_reducers/loginReducer'
 
 function ReduxOld() {
   return (
-    <div>
+    <div className='flexbox-container'>
       <Provider store={store}>
         <Login />
         <ShoppingCart />
-        <ShoppingCartCl />
+        {/* <ShoppingCartCl /> */}
         <Cart />
         <Total />
       </Provider>

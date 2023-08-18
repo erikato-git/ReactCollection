@@ -1,6 +1,8 @@
 import React from "react"
 
 
+// Memo2_components.js
+
 function Header(){
     console.log("Header")
     return (

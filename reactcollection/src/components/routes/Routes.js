@@ -55,7 +55,7 @@ function RoutesNav() {
                     <li><Link to="/products">Products</Link></li>
                 </ul>
             </div>
-            {/* <Routes>
+            <Routes>
                 <Route path='/'/>
                 <Route>
                     index points to the first parent route
@@ -69,7 +69,7 @@ function RoutesNav() {
                     Invalid routes
                     <Route path='*' element={<NotFound />}/>
                 </Route>
-            </Routes> */}
+            </Routes>
             {routeElements}
         </div>
     )
