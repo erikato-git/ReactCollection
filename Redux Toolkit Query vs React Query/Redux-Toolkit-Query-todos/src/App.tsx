@@ -1,8 +1,11 @@
+// App.tsx
+
 import React, { useCallback, useRef } from "react";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { todoApi, Todo } from "./store"
 
 // Server-elements is to be found in server/src/modules/todos/todo.controller.ts
+// Redux-Toolkit-Query is best suited for applications that use redux 
 
 function TodoApp(){
   const { data: todos } = todoApi.useGetAllQuery();   // call getAll in todoApi
@@ -20,7 +23,7 @@ function TodoApp(){
     (todo: Todo) => updateTodo({ ...todo, done: !todo.done }),
     [updateTodo]
   );
-
+                                      
 
   return <div className="App">
     {/* {JSON.stringify(todos)} */}
